@@ -1,18 +1,25 @@
 <template>
 	<div id="app">
-		<HelloWorld />
+		<router-view />
 	</div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue';
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#app {
+	width: 100vw;
+	height: 100vh;
+}
+#nav a {
+	font-weight: bold;
+	color: #2c3e50;
+}
 
-export default {
-	name: 'App',
-	components: {
-		HelloWorld,
-	},
-};
-</script>
-
-<style></style>
+#nav a.router-link-exact-active {
+	color: #42b983;
+}
+</style>
