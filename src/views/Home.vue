@@ -1,11 +1,17 @@
 <template>
 	<div class="home">
 		<div class="nav-area">
+			<img
+				class="logo"
+				src="../assets/icons/center-logo.svg"
+				alt="logotipo"
+			/>
 			<div id="nav">
-				<router-link to="/">home</router-link> |
-				<router-link to="/galeria">galeria</router-link> |
+				<router-link to="/">home</router-link>
+				<router-link to="/galeria">galeria</router-link>
 				<router-link to="/contacto-info">contacto e info</router-link>
 			</div>
+			<Mec />
 		</div>
 		<div class="photo-1-area"></div>
 		<div class="photo-1-title"></div>
@@ -17,9 +23,12 @@
 </template>
 
 <script>
+import Mec from '../components/Mec';
 export default {
 	name: 'Home',
-	components: {},
+	components: {
+		Mec,
+	},
 };
 </script>
 <style scoped>
@@ -32,7 +41,8 @@ export default {
 }
 .nav-area {
 	grid-area: 1 / 1 / 5 / 6;
-	background-color: red;
+	/* background-color: red; */
+	position: relative;
 }
 .photo-1-area {
 	grid-area: 1 / 6 / 6 / 12;
