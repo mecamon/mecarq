@@ -17,13 +17,13 @@
 			<Photo1 />
 		</div>
 		<div class="photo-1-title">
-			<PhotoTitle title="Random 1" />
+			<!-- <PhotoTitle title="Random 1" /> -->
 		</div>
 		<div class="photo-2-area">
 			<Photo2 />
 		</div>
 		<div class="photo-2-title">
-			<PhotoTitle title="Random 2" />
+			<!-- <PhotoTitle title="Random 2" /> -->
 		</div>
 		<div class="info-area">
 			<InfoAreaContainer />
@@ -83,6 +83,7 @@ export default {
 }
 .info-area {
 	grid-area: 6 / 5 / 9 / 12;
+	overflow: hidden;
 }
 .play-pause {
 	grid-area: 5 / 5 / 6 / 6;

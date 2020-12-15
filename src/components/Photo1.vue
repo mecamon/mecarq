@@ -9,11 +9,11 @@ export default {
 	name: 'Photo1',
 	data() {
 		return {
-			slideTime: 6000,
+			slideTime: 15000,
 		};
 	},
 	mounted() {
-		setInterval(() => {
+		let photo1Interval = setInterval(() => {
 			this.sliderShow();
 		}, this.slideTime);
 	},

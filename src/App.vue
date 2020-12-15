@@ -26,7 +26,7 @@ body {
 	font-weight: 400;
 }
 .logo {
-	width: 95px;
+	width: 120px;
 	height: auto;
 	position: absolute;
 	top: 40px;
@@ -41,7 +41,7 @@ body {
 	margin-left: 220px;
 }
 #nav a {
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 500;
 	color: #111111;
 	text-decoration: none;
