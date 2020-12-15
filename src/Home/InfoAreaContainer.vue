@@ -27,7 +27,7 @@
 	</div>
 </template>
 <script>
-import InfoArea from '../components/InfoArea';
+import InfoArea from './InfoArea';
 export default {
 	name: 'InfoAreaContainer',
 	components: {

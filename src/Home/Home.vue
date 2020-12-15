@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import Photo1 from '../components/Photo1';
-import Photo2 from '../components/Photo2';
-import Mec from '../components/Mec';
-import PhotoTitle from '../components/PhotoTitle';
-import InfoAreaContainer from '../components/InfoAreaContainer';
-import PlayPause from '../components/PlayPause';
+import Photo1 from './Photo1';
+import Photo2 from './Photo2';
+import Mec from './Mec';
+import PhotoTitle from './PhotoTitle';
+import InfoAreaContainer from './InfoAreaContainer';
+import PlayPause from './PlayPause';
 export default {
 	name: 'Home',
 	components: {
