@@ -12,8 +12,8 @@ export default {
 	width: 100%;
 	height: 100%;
 	background-image: url('../assets/icons/mec.svg');
-	background-size: 70%;
-	background-position: -110px;
+	background-size: 60%;
+	background-position: -50px;
 	background-repeat: no-repeat;
 }
 </style>

@@ -13,21 +13,43 @@
 			</div>
 			<Mec />
 		</div>
-		<div class="photo-1-area"></div>
-		<div class="photo-1-title"></div>
-		<div class="photo-2-area"></div>
-		<div class="photo-2-title"></div>
-		<div class="info-area"></div>
-		<div class="play-pause"></div>
+		<div class="photo-1-area">
+			<Photo1 />
+		</div>
+		<div class="photo-1-title">
+			<PhotoTitle title="Random 1" />
+		</div>
+		<div class="photo-2-area">
+			<Photo2 />
+		</div>
+		<div class="photo-2-title">
+			<PhotoTitle title="Random 2" />
+		</div>
+		<div class="info-area">
+			<InfoAreaContainer />
+		</div>
+		<div class="play-pause">
+			<PlayPause />
+		</div>
 	</div>
 </template>
 
 <script>
+import Photo1 from '../components/Photo1';
+import Photo2 from '../components/Photo2';
 import Mec from '../components/Mec';
+import PhotoTitle from '../components/PhotoTitle';
+import InfoAreaContainer from '../components/InfoAreaContainer';
+import PlayPause from '../components/PlayPause';
 export default {
 	name: 'Home',
 	components: {
 		Mec,
+		Photo1,
+		Photo2,
+		PhotoTitle,
+		InfoAreaContainer,
+		PlayPause,
 	},
 };
 </script>
@@ -41,31 +63,28 @@ export default {
 }
 .nav-area {
 	grid-area: 1 / 1 / 5 / 6;
-	/* background-color: red; */
 	position: relative;
 }
 .photo-1-area {
 	grid-area: 1 / 6 / 6 / 12;
-	background-color: yellow;
+	overflow: hidden;
 }
 .photo-1-title {
 	grid-area: 5 / 6 / 6 / 9;
-	background-color: rgb(65, 65, 65);
+	z-index: 20;
 }
 .photo-2-area {
 	grid-area: 5 / 1 / 9 / 5;
-	background-color: green;
+	overflow: hidden;
 }
 .photo-2-title {
-	grid-area: 5 / 3 / 6 / 6;
-	background-color: rgb(65, 65, 65);
+	grid-area: 5 / 3 / 6 / 5;
+	z-index: 20;
 }
 .info-area {
 	grid-area: 6 / 5 / 9 / 12;
-	background-color: gray;
 }
 .play-pause {
 	grid-area: 5 / 5 / 6 / 6;
-	background-color: blue;
 }
 </style>
