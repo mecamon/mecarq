@@ -1,10 +1,52 @@
 <template>
-	<div>
-		<h1>Hello from Contacto e info</h1>
+	<div class="contacto-info">
+		<div class="first-half">
+			<div class="nav-area">
+				<img
+					class="logo"
+					src="../assets/icons/center-logo.svg"
+					alt="logotipo"
+				/>
+				<div id="nav">
+					<router-link to="/">home</router-link>
+					<router-link to="/galeria">galeria</router-link>
+					<router-link to="/contacto-info"
+						>contacto e info</router-link
+					>
+				</div>
+			</div>
+			<AcercaDe />
+		</div>
+		<div class="second-half"><Contacto /></div>
 	</div>
 </template>
 <script>
+import AcercaDe from './AcercaDe';
+import Contacto from './Contacto';
 export default {
 	name: 'ContactoInfo',
+	components: {
+		AcercaDe,
+		Contacto,
+	},
 };
 </script>
+<style scoped>
+.contacto-info {
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+}
+.first-half {
+	width: 100%;
+	height: 50%;
+	background-color: white;
+}
+.second-half {
+	width: 100%;
+	height: 50%;
+	background-image: url('../assets/home-images/bg-contacto-extruded.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+</style>

@@ -11,7 +11,6 @@
 				<router-link to="/galeria">galeria</router-link>
 				<router-link to="/contacto-info">contacto e info</router-link>
 			</div>
-			<Mec />
 		</div>
 		<div class="photo-1-area">
 			<Photo1 />
@@ -37,14 +36,12 @@
 <script>
 import Photo1 from './Photo1';
 import Photo2 from './Photo2';
-import Mec from './Mec';
 import PhotoTitle from './PhotoTitle';
 import InfoAreaContainer from './InfoAreaContainer';
 import PlayPause from './PlayPause';
 export default {
 	name: 'Home',
 	components: {
-		Mec,
 		Photo1,
 		Photo2,
 		PhotoTitle,
@@ -64,6 +61,10 @@ export default {
 .nav-area {
 	grid-area: 1 / 1 / 5 / 6;
 	position: relative;
+	background-image: url('../assets/icons/mec-cutted.svg');
+	background-size: 60%;
+	background-position: -50px;
+	background-repeat: no-repeat;
 }
 .photo-1-area {
 	grid-area: 1 / 6 / 6 / 12;

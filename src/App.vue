@@ -32,13 +32,19 @@ body {
 	top: 40px;
 	left: 60px;
 }
+.dark-text {
+	color: #111111;
+}
+.white-text {
+	color: white;
+}
 #app {
 	width: 100vw;
 	height: 100vh;
 }
 #nav {
-	margin-top: 50px;
-	margin-left: 220px;
+	padding-top: 50px;
+	padding-left: 220px;
 }
 #nav a {
 	font-size: 18px;

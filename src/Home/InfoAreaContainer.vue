@@ -52,15 +52,6 @@ export default {
 			} else if (texto.style.marginLeft == '-100%') {
 				texto.style.marginLeft = '0%';
 			}
-
-			// if (texto.style.marginLeft == '-100%') {
-			// 	texto.style.marginLeft = '0%';
-			// } else if (
-			// 	texto.style.marginLeft == '0%' ||
-			// 	texto.style.marginLeft == 0
-			// ) {
-			// 	texto.style.marginLeft = '-100%';
-			// }
 		},
 	},
 };
@@ -81,7 +72,7 @@ export default {
 	width: 50%;
 	height: 100%;
 	background-color: #333333;
-	background-image: url('../assets/icons/arq.svg');
+	background-image: url('../assets/icons/arq-cutted.svg');
 	background-size: 35%;
 	background-position: 100%;
 	background-repeat: no-repeat;
@@ -93,7 +84,7 @@ export default {
 	width: 50%;
 	height: 100%;
 	background-color: #ffffff;
-	background-image: url('../assets/icons/arq.svg');
+	background-image: url('../assets/icons/arq-cutted.svg');
 	background-size: 35%;
 	background-position: 100%;
 	background-repeat: no-repeat;
