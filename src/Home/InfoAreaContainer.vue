@@ -45,7 +45,6 @@ export default {
 		}, this.slideTime);
 	},
 	beforeDestroy() {
-		console.log('Destroying text interval');
 		clearInterval(this.textInterval);
 	},
 	methods: {

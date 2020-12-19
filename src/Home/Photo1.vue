@@ -19,7 +19,6 @@ export default {
 		}, this.slideTime);
 	},
 	beforeDestroy() {
-		console.log('Destroying interval-1');
 		clearInterval(this.photo1Interval);
 	},
 	methods: {

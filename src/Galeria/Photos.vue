@@ -1,22 +1,31 @@
 <template>
 	<div class="photos">
 		<div ref="images" class="container">
-			<img src="../assets/thumb/rheumII-sala-3.jpg" alt="" />
+			<img
+				v-for="(image, index) in images"
+				:key="index"
+				:src="image"
+				alt=""
+			/>
+			<!-- <img src="../assets/thumb/rheumII-sala-3.jpg" alt="" />
 			<img src="../assets/thumb/rheumII-exterior-dia.jpg" alt="" />
 			<img src="../assets/thumb/prop-1.jpg" alt="" />
 			<img src="../assets/thumb/rheumII-exterior-noche.jpg" alt="" />
 			<img src="../assets/thumb/periodismo-1-2.jpg" alt="" />
 			<img src="../assets/thumb/rheumII-hab-2.jpg" alt="" />
 			<img src="../assets/thumb/periodismo-1-1.jpg" alt="" />
-			<img src="../assets/thumb/rheumII-hab-1.jpg" alt="" />
+			<img src="../assets/thumb/rheumII-hab-1.jpg" alt="" /> -->
 		</div>
 	</div>
 </template>
 <script>
+import firebase from 'firebase';
 export default {
 	name: 'Photos',
 	data() {
-		return {};
+		return {
+			images: [],
+		};
 	},
 	methods: {
 		organizeImages() {
@@ -24,7 +33,6 @@ export default {
 
 			images.forEach(image => {
 				let ratio = image.naturalHeight / image.naturalWidth;
-
 				if (ratio < 0.5) {
 					image.classList.add('w-2');
 				} else if (ratio > 1.2) {
@@ -32,9 +40,37 @@ export default {
 				}
 			});
 		},
+		listAllThumbs() {
+			const storeRef = firebase.storage().ref();
+			let listOfthumbs = [];
+
+			storeRef
+				//Listing all the images availables in the given folder location
+				.child('thumbs')
+				.listAll()
+				.then(({ _delegate }) => {
+					const items = _delegate.items;
+
+					items.forEach(item => {
+						// Looking for the download url of images and storing them in the images array
+						storeRef
+							.child(item._location.path)
+							.getDownloadURL()
+							.then(url => this.images.push(url))
+							.catch(e => console.log(e));
+					});
+				})
+				.catch(e => console.log(e));
+		},
+	},
+	created() {
+		this.listAllThumbs();
 	},
 	mounted() {
-		this.organizeImages();
+		//Wait a second for the images to load from firebase before organize
+		setTimeout(() => {
+			this.organizeImages();
+		}, 1000);
 	},
 };
 </script>
