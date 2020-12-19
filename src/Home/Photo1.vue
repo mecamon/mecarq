@@ -10,12 +10,17 @@ export default {
 	data() {
 		return {
 			slideTime: 15000,
+			photo1Interval: null,
 		};
 	},
 	mounted() {
-		let photo1Interval = setInterval(() => {
+		this.photo1Interval = setInterval(() => {
 			this.sliderShow();
 		}, this.slideTime);
+	},
+	beforeDestroy() {
+		console.log('Destroying interval-1');
+		clearInterval(this.photo1Interval);
 	},
 	methods: {
 		sliderShow() {

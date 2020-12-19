@@ -36,12 +36,17 @@ export default {
 	data() {
 		return {
 			slideTime: 15000,
+			textInterval: null,
 		};
 	},
 	mounted() {
-		let textInterval = setInterval(() => {
+		this.textInterval = setInterval(() => {
 			this.sliderShow();
 		}, this.slideTime);
+	},
+	beforeDestroy() {
+		console.log('Destroying text interval');
+		clearInterval(this.textInterval);
 	},
 	methods: {
 		sliderShow() {

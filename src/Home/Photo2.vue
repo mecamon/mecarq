@@ -5,17 +5,25 @@
 	</div>
 </template>
 <script>
+import prop1 from '../assets/thumb/prop-1.jpg';
+
 export default {
 	name: 'Photo2',
 	data() {
 		return {
 			slideTime: 15000,
+			photo2Interval: null,
 		};
 	},
 	mounted() {
-		let photo2Interval = setInterval(() => {
+		console.log(prop1);
+		this.photo2Interval = setInterval(() => {
 			this.sliderShow();
 		}, this.slideTime);
+	},
+	beforeDestroy() {
+		console.log('destroying interval-2');
+		clearInterval(this.photo2Interval);
 	},
 	methods: {
 		sliderShow() {
