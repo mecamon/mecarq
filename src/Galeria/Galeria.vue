@@ -1,5 +1,9 @@
 <template>
 	<div class="galeria">
+		<ImageModal
+			v-if="showImageModal"
+			v-on:close-modal="showImageModal = false"
+		/>
 		<div class="photos-area">
 			<Photos />
 		</div>
@@ -7,11 +11,19 @@
 </template>
 <script>
 import Photos from './Photos';
+import ImageModal from './ImageModal';
 export default {
 	name: 'Galeria',
+	data() {
+		return {
+			showImageModal: true,
+		};
+	},
 	components: {
 		Photos,
+		ImageModal,
 	},
+	methods: {},
 };
 </script>
 <style scoped>
