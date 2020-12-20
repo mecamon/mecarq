@@ -1,28 +1,6 @@
 <template>
 	<div class="home">
 		<div class="nav-area"></div>
-		<div id="nav" ref="nav">
-			<img
-				src="../assets/icons/close.svg"
-				alt="close"
-				@click="hideNavbar()"
-			/>
-			<router-link to="/">home</router-link>
-			<router-link to="/galeria">galeria</router-link>
-			<router-link to="/contacto-info">contacto e info</router-link>
-		</div>
-		<div class="logo-area">
-			<img
-				class="logo"
-				src="../assets/icons/center-logo.svg"
-				alt="logotipo"
-			/>
-		</div>
-		<div class="hamburger-area">
-			<button @click="showNavbar()">
-				<img src="../assets/icons/icon-hamburger.svg" alt="" />
-			</button>
-		</div>
 		<div class="photo-1-area">
 			<Photo1 v-bind:isStopped="isStopped" />
 		</div>
@@ -63,16 +41,6 @@ export default {
 			console.log('Stopping all sliders!');
 			this.isStopped = !this.isStopped;
 		},
-		showNavbar() {
-			let navBar = this.$refs.nav;
-
-			navBar.style.marginLeft = '0px';
-		},
-		hideNavbar() {
-			let navBar = this.$refs.nav;
-
-			navBar.style.marginLeft = '-300px';
-		},
 	},
 };
 </script>
@@ -92,57 +60,6 @@ export default {
 	background-position: -50px;
 	background-repeat: no-repeat;
 }
-.logo-area {
-	grid-area: 1 / 1 / 2/ 6;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-.logo-area .logo {
-	margin-left: 90px;
-}
-.hamburger-area {
-	grid-area: 1 / 1 / 2/ 2;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-.hamburger-area button {
-	display: none;
-	cursor: pointer;
-	outline: none;
-	border: none;
-	background-color: white;
-}
-#nav {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	grid-area: 1 / 1 / 2 / 6;
-	width: 100%;
-	height: 100%;
-	margin-left: 70px;
-}
-#nav a {
-	display: block;
-	font-size: 18px;
-	font-weight: 500;
-	color: #111111;
-	text-decoration: none;
-	margin-right: 35px;
-}
-#nav img {
-	display: none;
-}
-/* @media only screen and (max-width: 1350px) {
-	#nav img {
-		display: block;
-		width: 20px;
-		height: auto;
-	}
-} */
 .photo-1-area {
 	grid-area: 1 / 6 / 6 / 12;
 	overflow: hidden;
@@ -157,58 +74,6 @@ export default {
 }
 .play-pause {
 	grid-area: 5 / 5 / 6 / 6;
-}
-@media only screen and (max-width: 1520px) {
-	.logo-area .logo {
-		margin-left: 60px;
-	}
-}
-@media only screen and (max-width: 1350px) {
-	.logo-area {
-		grid-area: 1 / 1 / 2/ 6;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.logo-area .logo {
-		margin-left: 0;
-	}
-	.hamburger-area button {
-		width: 40px;
-		height: auto;
-		display: block;
-		cursor: pointer;
-		z-index: 100;
-	}
-	#nav {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		grid-area: 1 / 1 / 5 / 2;
-		background-color: white;
-		box-shadow: 4px 0px 10px #888888;
-		z-index: 150;
-		width: 300px;
-		height: 100%;
-		margin-left: -300px;
-		transition: 1s;
-	}
-	#nav img {
-		position: absolute;
-		right: 1rem;
-		top: 1rem;
-		cursor: pointer;
-	}
-	#nav a {
-		display: block;
-		font-size: 18px;
-		font-weight: 500;
-		color: #111111;
-		text-decoration: none;
-		margin: 30px 70px;
-	}
 }
 @media only screen and (max-width: 940px) {
 	.home {
@@ -225,52 +90,6 @@ export default {
 		background-size: 60%;
 		background-position: 0% 70%;
 		background-repeat: no-repeat;
-	}
-	.logo-area {
-		grid-area: 1 / 1 / 2/ 12;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.logo-area .logo {
-		margin-left: 0;
-	}
-	.hamburger-area button {
-		margin-left: 1rem;
-		width: 40px;
-		height: auto;
-		display: block;
-		cursor: pointer;
-		z-index: 100;
-	}
-	#nav {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		grid-area: 1 / 1 / 5 / 2;
-		background-color: white;
-		box-shadow: 4px 0px 10px #888888;
-		z-index: 150;
-		width: 300px;
-		height: 100%;
-		margin-left: -300px;
-		transition: 1s;
-	}
-	#nav img {
-		position: absolute;
-		right: 1rem;
-		top: 1rem;
-		cursor: pointer;
-	}
-	#nav a {
-		display: block;
-		font-size: 18px;
-		font-weight: 500;
-		color: #111111;
-		text-decoration: none;
-		margin: 30px 70px;
 	}
 	.photo-1-area {
 		grid-area: 4 / 1 / 9 / 12;
@@ -295,20 +114,6 @@ export default {
 		height: 1800px;
 		grid-template-rows: repeat(16, 1fr);
 		grid-template-columns: repeat(11, 1fr);
-	}
-	.nav-area {
-		grid-area: 1 / 1 / 3 / 12;
-		position: relative;
-		background-image: url('../assets/icons/mec-cutted.svg');
-		background-size: 60%;
-		background-position: 0% 200%;
-		background-repeat: no-repeat;
-	}
-	.logo-area {
-		grid-area: 1 / 1 / 2/ 12;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	.photo-1-area {
 		grid-area: 3 / 1 / 7 / 12;

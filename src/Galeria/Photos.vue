@@ -17,6 +17,7 @@ export default {
 	data() {
 		return {
 			images: [],
+			timeToOrganize: 2000,
 		};
 	},
 	methods: {
@@ -62,7 +63,7 @@ export default {
 		//Wait a second for the images to load from firebase before organize
 		setTimeout(() => {
 			this.organizeImages();
-		}, 1000);
+		}, this.timeToOrganize);
 	},
 };
 </script>
@@ -75,7 +76,7 @@ export default {
 	grid-template-columns: repeat(4, 1fr);
 	grid-auto-rows: 300px 280px;
 	grid-auto-flow: row dense;
-	gap: 10px;
+	gap: 20px;
 }
 @media only screen and (max-width: 1460px) {
 	.container {

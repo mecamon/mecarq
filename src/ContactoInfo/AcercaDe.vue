@@ -24,6 +24,7 @@ export default {
 	display: flex;
 	margin-top: 30px;
 	justify-content: flex-end;
+	align-items: flex-end;
 	background-image: url('../assets/icons/mec-cutted.svg');
 	background-repeat: no-repeat;
 	background-size: 30%;
@@ -47,6 +48,7 @@ export default {
 	}
 	.acerca-de article {
 		width: 100%;
+		height: 80%;
 	}
 }
 article h2 {
