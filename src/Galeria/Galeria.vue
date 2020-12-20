@@ -35,4 +35,15 @@ export default {
 .photos-area {
 	width: 100%;
 }
+#nav {
+	padding-top: 50px;
+	padding-left: 220px;
+}
+#nav a {
+	font-size: 18px;
+	font-weight: 500;
+	color: #111111;
+	text-decoration: none;
+	margin-right: 40px;
+}
 </style>

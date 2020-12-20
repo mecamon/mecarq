@@ -34,9 +34,6 @@ body {
 .logo {
 	width: 120px;
 	height: auto;
-	position: absolute;
-	top: 40px;
-	left: 60px;
 }
 .dark-text {
 	color: #111111;
@@ -48,19 +45,4 @@ body {
 	width: 100vw;
 	height: 100vh;
 }
-#nav {
-	padding-top: 50px;
-	padding-left: 220px;
-}
-#nav a {
-	font-size: 18px;
-	font-weight: 500;
-	color: #111111;
-	text-decoration: none;
-	margin-right: 40px;
-}
-
-/* #nav a.router-link-exact-active {
-	color: #42b983;
-} */
 </style>
