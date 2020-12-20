@@ -24,7 +24,7 @@ export default {
 	display: flex;
 	margin-top: 30px;
 	justify-content: flex-end;
-	background-image: url('../assets/icons/mec.svg');
+	background-image: url('../assets/icons/mec-cutted.svg');
 	background-repeat: no-repeat;
 	background-size: 30%;
 	background-position: 20% 70%;
@@ -34,6 +34,20 @@ export default {
 	width: 42%;
 	padding: 2.5em;
 	background-color: #333333;
+}
+@media only screen and (max-width: 1500px) {
+	.acerca-de article {
+		width: 62%;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	.acerca-de {
+		width: 100%;
+		height: 100%;
+	}
+	.acerca-de article {
+		width: 100%;
+	}
 }
 article h2 {
 	text-transform: uppercase;
