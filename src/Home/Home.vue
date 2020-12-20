@@ -13,22 +13,22 @@
 			</div>
 		</div>
 		<div class="photo-1-area">
-			<Photo1 />
+			<Photo1 v-bind:isStopped="isStopped" />
 		</div>
 		<div class="photo-1-title">
 			<!-- <PhotoTitle title="Random 1" /> -->
 		</div>
 		<div class="photo-2-area">
-			<Photo2 />
+			<Photo2 v-bind:isStopped="isStopped" />
 		</div>
 		<div class="photo-2-title">
 			<!-- <PhotoTitle title="Random 2" /> -->
 		</div>
 		<div class="info-area">
-			<InfoAreaContainer />
+			<InfoAreaContainer v-bind:isStopped="isStopped" />
 		</div>
 		<div class="play-pause">
-			<PlayPause />
+			<PlayPause @stop-sliders="onStopSliders" />
 		</div>
 	</div>
 </template>
@@ -47,6 +47,17 @@ export default {
 		PhotoTitle,
 		InfoAreaContainer,
 		PlayPause,
+	},
+	data() {
+		return {
+			isStopped: false,
+		};
+	},
+	methods: {
+		onStopSliders() {
+			console.log('Stopping all sliders!');
+			this.isStopped = !this.isStopped;
+		},
 	},
 };
 </script>

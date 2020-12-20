@@ -7,14 +7,6 @@
 				:src="image"
 				alt=""
 			/>
-			<!-- <img src="../assets/thumb/rheumII-sala-3.jpg" alt="" />
-			<img src="../assets/thumb/rheumII-exterior-dia.jpg" alt="" />
-			<img src="../assets/thumb/prop-1.jpg" alt="" />
-			<img src="../assets/thumb/rheumII-exterior-noche.jpg" alt="" />
-			<img src="../assets/thumb/periodismo-1-2.jpg" alt="" />
-			<img src="../assets/thumb/rheumII-hab-2.jpg" alt="" />
-			<img src="../assets/thumb/periodismo-1-1.jpg" alt="" />
-			<img src="../assets/thumb/rheumII-hab-1.jpg" alt="" /> -->
 		</div>
 	</div>
 </template>

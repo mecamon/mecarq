@@ -7,11 +7,27 @@
 <script>
 export default {
 	name: 'Photo1',
+	props: {
+		isStopped: Boolean,
+	},
 	data() {
 		return {
 			slideTime: 15000,
 			photo1Interval: null,
 		};
+	},
+	watch: {
+		isStopped: function() {
+			if (this.isStopped) {
+				console.log('Stopped!');
+				clearInterval(this.photo1Interval);
+			} else if (!this.isStopped) {
+				console.log('Running!');
+				this.photo1Interval = setInterval(() => {
+					this.sliderShow();
+				}, this.slideTime);
+			}
+		},
 	},
 	mounted() {
 		this.photo1Interval = setInterval(() => {

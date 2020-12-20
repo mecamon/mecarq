@@ -33,11 +33,25 @@ export default {
 	components: {
 		InfoArea,
 	},
+	props: {
+		isStopped: Boolean,
+	},
 	data() {
 		return {
 			slideTime: 15000,
 			textInterval: null,
 		};
+	},
+	watch: {
+		isStopped: function() {
+			if (this.isStopped) {
+				clearInterval(this.textInterval);
+			} else if (!this.isStopped) {
+				this.textInterval = setInterval(() => {
+					this.sliderShow();
+				}, this.slideTime);
+			}
+		},
 	},
 	mounted() {
 		this.textInterval = setInterval(() => {

@@ -1,11 +1,30 @@
 <template>
 	<div class="play-pause">
-		<img src="../assets/icons/play-button.svg" alt="" />
+		<img
+			:src="require(`../assets/icons/${button}`)"
+			alt=""
+			@click="playClickHandler($event)"
+		/>
 	</div>
 </template>
 <script>
 export default {
 	name: 'PlayPause',
+	data() {
+		return {
+			button: 'pause-button.svg',
+		};
+	},
+	methods: {
+		playClickHandler(event) {
+			if (this.button == 'pause-button.svg') {
+				this.button = 'play-button.svg';
+			} else {
+				this.button = 'pause-button.svg';
+			}
+			this.$emit('stop-sliders');
+		},
+	},
 };
 </script>
 
@@ -17,6 +36,7 @@ export default {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 .play-pause img {
 	width: 45%;
