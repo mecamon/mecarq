@@ -18,7 +18,7 @@ export default {
 	props: {
 		thumbnailsFolderName: String,
 		showingImageInPath: String,
-		nextOrPrevImage: String,
+		nextOrPrevImage: Object,
 	},
 	data() {
 		return {
@@ -28,10 +28,16 @@ export default {
 	},
 	watch: {
 		nextOrPrevImage: function() {
-			if (this.nextOrPrevImage === 'next') {
+			if (this.nextOrPrevImage.direction === 'next') {
 				this.images.forEach((image, index) => {
 					if (image.path === this.showingImageInPath) {
 						this.$emit('see-photo', this.images[index + 1].path);
+					}
+				});
+			} else if (this.nextOrPrevImage.direction === 'previous') {
+				this.images.forEach((image, index) => {
+					if (image.path === this.showingImageInPath) {
+						this.$emit('see-photo', this.images[index - 1].path);
 					}
 				});
 			}

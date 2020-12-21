@@ -5,6 +5,7 @@
 			v-on:close-modal="closeModal()"
 			v-bind:image="currentImageURL"
 			v-on:next-image="onNextImage()"
+			v-on:previous-image="onPrevImage()"
 		/>
 		<div class="photos-area">
 			<Photos
@@ -29,7 +30,7 @@ export default {
 			currentImageURL: '',
 			thumbnailsFolderName: 'thumbs',
 			imagesFolderName: 'images',
-			nextOrPrevImage: '',
+			nextOrPrevImage: {},
 		};
 	},
 	components: {
@@ -63,7 +64,17 @@ export default {
 		},
 		onNextImage() {
 			this.currentImageURL = '';
-			this.nextOrPrevImage = 'next';
+			this.nextOrPrevImage = {
+				direction: 'next',
+				id: Symbol('nextOrPrev'),
+			};
+		},
+		onPrevImage() {
+			this.currentImageURL = '';
+			this.nextOrPrevImage = {
+				direction: 'previous',
+				id: Symbol('nextOrPrev'),
+			};
 		},
 	},
 };
