@@ -3,27 +3,49 @@
 		<ImageModal
 			v-if="showImageModal"
 			v-on:close-modal="showImageModal = false"
+			v-bind:image="currentImageURL"
 		/>
 		<div class="photos-area">
-			<Photos />
+			<Photos v-on:see-photo="onSeePhoto" />
 		</div>
 	</div>
 </template>
 <script>
 import Photos from './Photos';
 import ImageModal from './ImageModal';
+import firebase from 'firebase';
 export default {
 	name: 'Galeria',
 	data() {
 		return {
-			showImageModal: true,
+			showImageModal: false,
+			currentImageURL: '',
 		};
 	},
 	components: {
 		Photos,
 		ImageModal,
 	},
-	methods: {},
+	methods: {
+		onSeePhoto(path) {
+			let pathToFullSize = path.replace('thumbs', 'images');
+
+			const storeRef = firebase.storage().ref();
+
+			console.log(pathToFullSize);
+
+			storeRef
+				.child(pathToFullSize)
+				.getDownloadURL()
+				.then(url => {
+					this.currentImageURL = url;
+					console.log(url);
+				})
+				.catch(e => console.log(e));
+
+			this.showImageModal = true;
+		},
+	},
 };
 </script>
 <style scoped>

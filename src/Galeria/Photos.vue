@@ -4,8 +4,9 @@
 			<img
 				v-for="(image, index) in images"
 				:key="index"
-				:src="image"
+				:src="image.url"
 				alt=""
+				@click="$emit('see-photo', image.path)"
 			/>
 		</div>
 	</div>
@@ -49,7 +50,12 @@ export default {
 						storeRef
 							.child(item._location.path)
 							.getDownloadURL()
-							.then(url => this.images.push(url))
+							.then(url =>
+								this.images.push({
+									url: url,
+									path: item._location.path,
+								})
+							)
 							.catch(e => console.log(e));
 					});
 				})
@@ -113,6 +119,7 @@ img {
 	height: 100%;
 	object-fit: cover;
 	object-position: 50% 50%;
+	cursor: pointer;
 }
 .w-2 {
 	grid-column: span 2;

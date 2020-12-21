@@ -1,17 +1,14 @@
 <template>
 	<div class="modal-container">
 		<div class="image-modal">
-			<img
-				class="close"
-				src="../assets/icons/close.svg"
-				alt=""
-				@click="$emit('close-modal')"
-			/>
-			<img
-				class="image"
-				src="../assets/thumb/codelpa-baño.jpg"
-				alt="selected image"
-			/>
+			<div class="close">
+				<img
+					src="../assets/icons/close.svg"
+					alt=""
+					@click="$emit('close-modal')"
+				/>
+			</div>
+			<img class="image" :src="image" alt="selected image" />
 		</div>
 	</div>
 </template>
@@ -25,33 +22,46 @@ export default {
 </script>
 <style scoped>
 .modal-container {
-	position: absolute;
+	position: fixed;
 	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.4);
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 150;
 }
 .image-modal {
-	padding: 30px;
 	border-radius: 5px;
-	background-color: rgba(255, 255, 255, 0.9);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	width: auto;
+	height: 100vh;
 }
 .image-modal .close {
-	width: 15px;
-	height: auto;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 60px;
+	right: 20px;
 	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+}
+.image-modal .close:hover {
+	transform: scale(1.3);
+}
+.close img {
+	width: 20px;
 }
 .image-modal .image {
-	max-height: 70%;
+	max-height: 90%;
 	width: auto;
 }
 </style>
