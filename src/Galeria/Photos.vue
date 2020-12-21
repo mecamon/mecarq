@@ -15,6 +15,9 @@
 import firebase from 'firebase';
 export default {
 	name: 'Photos',
+	props: {
+		thumbnailsFolderName: String,
+	},
 	data() {
 		return {
 			images: [],
@@ -36,11 +39,14 @@ export default {
 		},
 		listAllThumbs() {
 			const storeRef = firebase.storage().ref();
+
+			console.log(storeRef);
+
 			let listOfthumbs = [];
 
 			storeRef
 				//Listing all the images availables in the given folder location
-				.child('thumbs')
+				.child(this.thumbnailsFolderName)
 				.listAll()
 				.then(({ _delegate }) => {
 					const items = _delegate.items;

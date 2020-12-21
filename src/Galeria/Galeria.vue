@@ -2,11 +2,14 @@
 	<div class="galeria">
 		<ImageModal
 			v-if="showImageModal"
-			v-on:close-modal="showImageModal = false"
+			v-on:close-modal="showImageModal = closeModal()"
 			v-bind:image="currentImageURL"
 		/>
 		<div class="photos-area">
-			<Photos v-on:see-photo="onSeePhoto" />
+			<Photos
+				v-on:see-photo="onSeePhoto"
+				v-bind:thumbnailsFolderName="thumbnailsFolderName"
+			/>
 		</div>
 	</div>
 </template>
@@ -20,6 +23,8 @@ export default {
 		return {
 			showImageModal: false,
 			currentImageURL: '',
+			thumbnailsFolderName: 'thumbs',
+			imagesFolderName: 'images',
 		};
 	},
 	components: {
@@ -28,7 +33,10 @@ export default {
 	},
 	methods: {
 		onSeePhoto(path) {
-			let pathToFullSize = path.replace('thumbs', 'images');
+			let pathToFullSize = path.replace(
+				this.thumbnailsFolderName,
+				this.imagesFolderName
+			);
 
 			const storeRef = firebase.storage().ref();
 
@@ -45,13 +53,16 @@ export default {
 
 			this.showImageModal = true;
 		},
+		closeModal() {
+			this.showImageModal = false;
+			this.currentImageURL = '';
+		},
 	},
 };
 </script>
 <style scoped>
 .galeria {
 	width: 100vw;
-	/* background-color: gray; */
 	overflow: hidden;
 }
 .photos-area {
