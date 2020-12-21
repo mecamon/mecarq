@@ -2,13 +2,16 @@
 	<div class="galeria">
 		<ImageModal
 			v-if="showImageModal"
-			v-on:close-modal="showImageModal = closeModal()"
+			v-on:close-modal="closeModal()"
 			v-bind:image="currentImageURL"
+			v-on:next-image="onNextImage()"
 		/>
 		<div class="photos-area">
 			<Photos
 				v-on:see-photo="onSeePhoto"
 				v-bind:thumbnailsFolderName="thumbnailsFolderName"
+				v-bind:showingImageInPath="currentPathToImage"
+				v-bind:nextOrPrevImage="nextOrPrevImage"
 			/>
 		</div>
 	</div>
@@ -22,9 +25,11 @@ export default {
 	data() {
 		return {
 			showImageModal: false,
+			currentPathToImage: '',
 			currentImageURL: '',
 			thumbnailsFolderName: 'thumbs',
 			imagesFolderName: 'images',
+			nextOrPrevImage: '',
 		};
 	},
 	components: {
@@ -33,6 +38,8 @@ export default {
 	},
 	methods: {
 		onSeePhoto(path) {
+			this.currentPathToImage = path;
+
 			let pathToFullSize = path.replace(
 				this.thumbnailsFolderName,
 				this.imagesFolderName
@@ -40,14 +47,11 @@ export default {
 
 			const storeRef = firebase.storage().ref();
 
-			console.log(pathToFullSize);
-
 			storeRef
 				.child(pathToFullSize)
 				.getDownloadURL()
 				.then(url => {
 					this.currentImageURL = url;
-					console.log(url);
 				})
 				.catch(e => console.log(e));
 
@@ -56,6 +60,10 @@ export default {
 		closeModal() {
 			this.showImageModal = false;
 			this.currentImageURL = '';
+		},
+		onNextImage() {
+			this.currentImageURL = '';
+			this.nextOrPrevImage = 'next';
 		},
 	},
 };

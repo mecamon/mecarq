@@ -1,6 +1,12 @@
 <template>
 	<div class="modal-container">
 		<div class="image-modal">
+			<button id="left-chevron" @click="$emit('previous-image')">
+				<img src="../assets/icons/left-chevron.svg" alt="" />
+			</button>
+			<button id="right-chevron" @click="$emit('next-image')">
+				<img src="../assets/icons/right-chevron.svg" alt="" />
+			</button>
 			<div class="close" v-if="image">
 				<img
 					src="../assets/icons/close.svg"
@@ -33,26 +39,41 @@ export default {
 	z-index: 150;
 }
 .image-modal {
-	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	background-color: white;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+.image-modal #left-chevron,
+.image-modal #right-chevron {
+	grid-area: 1 / 1 / 2 / 2;
+	align-self: center;
+	justify-self: start;
+	width: 40px;
+	height: auto;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	z-index: 100;
+}
+.image-modal #right-chevron {
+	justify-self: end;
 }
 .image-modal .close {
+	grid-area: 1 / 1 / 2 / 2;
+	justify-self: end;
+	align-self: start;
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
-	position: absolute;
-	top: 20px;
-	left: 50%;
 	cursor: pointer;
+	margin-top: 20px;
+	margin-right: 20px;
 	background-color: rgba(255, 255, 255, 0.8);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: 0.5s;
+	z-index: 100;
 }
 .image-modal .close:hover {
 	transform: scale(1.3);
@@ -61,6 +82,7 @@ export default {
 	width: 20px;
 }
 .image-modal .image {
+	grid-area: 1 / 1 / 2 / 2;
 	display: block;
 	/* max-height: 90%;
 	width: auto; */

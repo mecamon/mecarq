@@ -17,6 +17,8 @@ export default {
 	name: 'Photos',
 	props: {
 		thumbnailsFolderName: String,
+		showingImageInPath: String,
+		nextOrPrevImage: String,
 	},
 	data() {
 		return {
@@ -24,11 +26,22 @@ export default {
 			timeToOrganize: 2000,
 		};
 	},
+	watch: {
+		nextOrPrevImage: function() {
+			if (this.nextOrPrevImage === 'next') {
+				this.images.forEach((image, index) => {
+					if (image.path === this.showingImageInPath) {
+						this.$emit('see-photo', this.images[index + 1].path);
+					}
+				});
+			}
+		},
+	},
 	methods: {
 		organizeImages() {
-			let images = this.$refs.images.childNodes;
+			let imageElements = this.$refs.images.childNodes;
 
-			images.forEach(image => {
+			imageElements.forEach(image => {
 				let ratio = image.naturalHeight / image.naturalWidth;
 				if (ratio < 0.5) {
 					image.classList.add('w-2');
@@ -39,8 +52,6 @@ export default {
 		},
 		listAllThumbs() {
 			const storeRef = firebase.storage().ref();
-
-			console.log(storeRef);
 
 			let listOfthumbs = [];
 
