@@ -47,16 +47,22 @@ export default {
 .image-modal #right-chevron {
 	grid-area: 1 / 1 / 2 / 2;
 	align-self: center;
-	justify-self: start;
 	width: 40px;
 	height: auto;
 	border: none;
 	cursor: pointer;
+	opacity: 0.9;
+	outline: none;
 	background-color: transparent;
 	z-index: 100;
 }
 .image-modal #right-chevron {
 	justify-self: end;
+	margin-right: 20px;
+}
+.image-modal #left-chevron {
+	justify-self: start;
+	margin-left: 20px;
 }
 .image-modal .close {
 	grid-area: 1 / 1 / 2 / 2;

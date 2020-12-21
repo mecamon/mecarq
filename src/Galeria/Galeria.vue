@@ -39,6 +39,7 @@ export default {
 	},
 	methods: {
 		onSeePhoto(path) {
+			this.currentImageURL = '';
 			this.currentPathToImage = path;
 
 			let pathToFullSize = path.replace(
@@ -63,14 +64,14 @@ export default {
 			this.currentImageURL = '';
 		},
 		onNextImage() {
-			this.currentImageURL = '';
+			// this.currentImageURL = '';
 			this.nextOrPrevImage = {
 				direction: 'next',
 				id: Symbol('nextOrPrev'),
 			};
 		},
 		onPrevImage() {
-			this.currentImageURL = '';
+			// this.currentImageURL = '';
 			this.nextOrPrevImage = {
 				direction: 'previous',
 				id: Symbol('nextOrPrev'),
