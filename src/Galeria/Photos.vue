@@ -106,7 +106,7 @@ export default {
 <style scoped>
 .container {
 	padding: 5rem;
-	margin-top: 5rem;
+	margin-top: 6rem;
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -118,6 +118,7 @@ export default {
 	.container {
 		grid-template-columns: repeat(3, 1fr);
 		grid-auto-rows: 260px;
+		padding: 2rem;
 	}
 }
 @media only screen and (max-width: 1180px) {
@@ -130,6 +131,8 @@ export default {
 	.container {
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-rows: 260px;
+		padding: 1rem;
+		margin-top: 6rem;
 	}
 }
 @media only screen and (max-width: 700px) {

@@ -90,11 +90,29 @@ export default {
 .image-modal .image {
 	grid-area: 1 / 1 / 2 / 2;
 	display: block;
-	/* max-height: 90%;
-	width: auto; */
 	width: auto;
 	max-width: 90vw;
 	max-height: 90vh;
+}
+@media only screen and (max-width: 700px) {
+	.image-modal #left-chevron,
+	.image-modal #right-chevron {
+		width: 30px;
+		height: auto;
+	}
+	.image-modal .close {
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+		cursor: pointer;
+		margin-top: 10px;
+		margin-right: 10px;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+	.close img {
+		width: 13px;
+		height: auto;
+	}
 }
 
 /*Spinner css---------------------------*/

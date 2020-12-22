@@ -168,9 +168,9 @@ body {
 		background-color: white;
 		box-shadow: 4px 0px 10px #888888;
 		z-index: 120;
-		width: 300px;
+		width: 200px;
 		height: 100%;
-		margin-left: -300px;
+		margin-left: -200px;
 		transition: 1s;
 	}
 	#nav img {
@@ -189,6 +189,7 @@ body {
 		color: #111111;
 		text-decoration: none;
 		margin: 30px 70px;
+		text-align: center;
 	}
 }
 @media only screen and (max-width: 940px) {
@@ -219,9 +220,9 @@ body {
 		background-color: white;
 		box-shadow: 4px 0px 10px #888888;
 		z-index: 150;
-		width: 300px;
+		width: 200px;
 		height: 100%;
-		margin-left: -300px;
+		margin-left: -200px;
 		transition: 1s;
 	}
 	#nav img {
@@ -237,6 +238,7 @@ body {
 		color: #111111;
 		text-decoration: none;
 		margin: 30px 70px;
+		text-align: center;
 	}
 }
 </style>
